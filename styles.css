@@ -1,0 +1,195 @@
+/* Tutorial basic code */
+
+/* Create the 3D environment */
+
+/* .scene {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+  perspective: 800px;
+} */
+
+/* Set up the main 3D object */
+/* .cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+} */
+
+/* Styling for all faces */
+/* .face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(0,255,255,0.6);
+} */
+
+/* .cube:hover {
+  transform: scaleZ(3) rotateX(45deg) rotateY(25deg)
+} */
+
+/* Position each face in 3D space */
+/* .front {
+  transform: translateZ(100px);
+  background-color: purple;
+} */
+
+/* .back {
+  transform: translateZ(-100px) rotateY(180deg); 
+      background-color: pink;
+} */
+
+/* .left {
+  transform: translateX(-100px) rotateY(-90deg);
+      background-color: green;
+} */
+
+/* .right {
+  transform: translateX(100px) rotateY(90deg);
+      background-color: blue;
+} */
+
+/* .top {
+  transform: translateY(-100px) rotateX(90deg);
+      background-color: red;
+} */
+
+/* .bottom {
+  transform: translateY(100px) rotateX(-90deg);
+      background-color: grey;
+} */
+
+/*___________________ */
+/* Final code */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top,
+    #1a1a2e 0%,
+    #16213e 50%,
+    #0f0f23 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  perspective: 800px;
+}
+
+.scene {
+  width: 250px;
+  height: 250px;
+  margin: 40px auto;
+  perspective: 1000px;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.cube:hover {
+  transform: scaleZ(3.5) rotateX(35deg) rotateY(25deg);
+}
+
+.face {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.face::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 23px;
+  pointer-events: none;
+}
+
+.front {
+  transform: translateZ(125px);
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.3),
+    rgba(118, 75, 162, 0.4)
+  );
+}
+
+.back {
+  transform: translateZ(-125px) rotateY(180deg);
+  background: linear-gradient(
+    135deg,
+    rgba(79, 172, 254, 0.3),
+    rgba(0, 242, 254, 0.4)
+  );
+}
+
+.left {
+  transform: translateX(-125px) rotateY(-90deg);
+  background: linear-gradient(
+    135deg,
+    rgba(240, 147, 251, 0.3),
+    rgba(245, 87, 108, 0.4)
+  );
+}
+
+.right {
+  transform: translateX(125px) rotateY(90deg);
+  background: linear-gradient(
+    135deg,
+    rgba(250, 208, 122, 0.3),
+    rgba(255, 154, 158, 0.4)
+  );
+}
+
+.top {
+  transform: translateY(-125px) rotateX(90deg);
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 0.3),
+    rgba(236, 72, 153, 0.4)
+  );
+}
+
+.bottom {
+  transform: translateY(125px) rotateX(-90deg);
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.3),
+    rgba(59, 130, 246, 0.4)
+  );
+}
